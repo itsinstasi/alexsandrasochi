@@ -9,8 +9,8 @@
     <script async src="https://use.fontawesome.com/d758daec41.js"></script>   
 	<link rel="stylesheet" href="css/style.css"/>
     
-    <meta name="description" content="понаехали всочи мысвамиестьдругудруга p2p h2h ptop htoh дизайнмышление корпоратив2019 дизайнермышления">
-    <meta name="keywords" content="понаехали всочи мысвамиестьдругудруга p2p h2h ptop htoh дизайнмышление корпоратив2019 дизайнермышления" />
+    <meta name="description" content="понаехали мысвамиестьдругудруга дизайнмышление всочи p2p h2h ptop htoh корпоратив2019 дизайнермышления">
+    <meta name="keywords" content="понаехали мысвамиестьдругудруга дизайнмышление всочи p2p h2h ptop htoh корпоратив2019 дизайнермышления" />
     
     <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-icon-60x60.png">
@@ -39,7 +39,7 @@
     <meta property="og:image:width" content="150"/>
     <meta property="og:image:height" content="150"/>
     <meta property="og:title" content="Дизайнер мышления" />
-    <meta property="og:description" content="понаехали всочи мысвамиестьдругудруга p2p h2h ptop htoh дизайнмышление корпоратив2019 дизайнермышления" />
+    <meta property="og:description" content="понаехали мысвамиестьдругудруга дизайнмышление всочи p2p h2h ptop htoh корпоратив2019 дизайнермышления" />
     <meta property="og:locale" content="Ru-ru" />
     <meta property="og:site_name" content="alexsandrasochi" />
 
@@ -67,6 +67,9 @@
 						</a>
 						<div class="header__title">Дизайнер мышления</div>
 					</div>
+					<div id="settingsContainer" class="header__right" style="display:none">
+						<button onclick="window.open('http://itsinsta.site/page.html?project=alexsandrasochi');" class="btn stories-popup__buy">Настроить</button>
+					</div>
 				</div>
 			</div>
 		</header>	
@@ -82,6 +85,15 @@
 					<div class="stories__slider" id="js-stories-slider">
 						<div class="swiper-wrapper">
 							<div class="swiper-slide">
+								<div class="stories__slide" title="мысвамиестьдругудруга">
+									<a href="./tags/./mysvamiest-drugudruga.html">
+										<div class="stories__slide-pic" style="background-image: url(./img/og/mysvamiest-drugudruga.png);"></div>
+										<div class="stories__slide-txt" style="		color: #FFFFFF;
+">мысвамиестьдругудруга</div>
+									</a>
+								</div>
+							</div>
+							<div class="swiper-slide">
 								<div class="stories__slide" title="понаехали">
 									<a href="./tags/./ponaekhali.html">
 										<div class="stories__slide-pic" style="background-image: url(./img/og/ponaekhali.png);"></div>
@@ -91,11 +103,11 @@
 								</div>
 							</div>
 							<div class="swiper-slide">
-								<div class="stories__slide" title="мысвамиестьдругудруга">
-									<a href="./tags/./mysvamiest-drugudruga.html">
-										<div class="stories__slide-pic" style="background-image: url(./img/og/mysvamiest-drugudruga.png);"></div>
+								<div class="stories__slide" title="дизайнмышление">
+									<a href="./tags/./dizaynmyshlenie.html">
+										<div class="stories__slide-pic" style="background-image: url(./img/og/dizaynmyshlenie.png);"></div>
 										<div class="stories__slide-txt" style="		color: #FFFFFF;
-">мысвамиестьдругудруга</div>
+">дизайнмышление</div>
 									</a>
 								</div>
 							</div>
@@ -141,15 +153,6 @@
 										<div class="stories__slide-pic" style="background-image: url(./img/og/htoh.png);"></div>
 										<div class="stories__slide-txt" style="		color: #FFFFFF;
 ">htoh</div>
-									</a>
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="stories__slide" title="дизайнмышление">
-									<a href="./tags/./dizaynmyshlenie.html">
-										<div class="stories__slide-pic" style="background-image: url(./img/og/dizaynmyshlenie.png);"></div>
-										<div class="stories__slide-txt" style="		color: #FFFFFF;
-">дизайнмышление</div>
 									</a>
 								</div>
 							</div>
@@ -327,7 +330,34 @@ function getFormData($form){
     return indexed_array;
 }
 
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+}
+
 $(document).ready(function(){
+	var lid = getUrlParameter("lid");
+	if (lid) {
+        localStorage.setItem("hasToken", true);
+
+		$("#settingsContainer").show();
+		$("#settingsContainer").children("btn").first().attr("onclick", 'window.open("http://itsinsta.site/invite.html?invitationId="' + lid + ')');
+	}
+	else if (localStorage.getItem("hasToken"))
+	{
+		$("#settingsContainer").show();
+	}
+
     $('form').submit(function(){
 	event.preventDefault(); //prevent default action 
 
