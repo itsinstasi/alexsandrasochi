@@ -62,7 +62,7 @@
 				<div class="header__wrap">
 					<div class="header__left">
 						<a href="./" class="header__logo">
-							<div class="header__logo-pic"><img src="https://scontent-arn2-2.cdninstagram.com/v/t51.2885-19/s150x150/69176749_688883144923548_1250027738757070848_n.jpg?_nc_ht=scontent-arn2-2.cdninstagram.com&_nc_ohc=BeP9OoZwrxsAX-m5U-p&oh=41c75f65528120d9a6609b85b4b7443a&oe=5EC12C60" alt="Дизайнер мышления"></div>
+							<div class="header__logo-pic"><img src="https://scontent-arn2-2.cdninstagram.com/v/t51.2885-19/s150x150/69176749_688883144923548_1250027738757070848_n.jpg?_nc_ht=scontent-arn2-2.cdninstagram.com&_nc_ohc=RZHr4PCVX2gAX_KWF2M&oh=0e8f9d2d3db1b30371f5b56b2551d535&oe=5EC12C60" alt="Дизайнер мышления"></div>
 							<div class="header__logo-txt">alexsandrasochi</div>
 						</a>
 						<div class="header__title">Дизайнер мышления</div>
@@ -261,7 +261,7 @@ color: #FFFFFF;
 
 
 						<div class="links-page-btn-pic">
-							<center><img src="https://scontent-arn2-1.cdninstagram.com/v/t51.2885-15/e35/s1080x1080/81176652_466195370978854_5596644656489397482_n.jpg?_nc_ht=scontent-arn2-1.cdninstagram.com&_nc_cat=110&_nc_ohc=fiGcpNJzJxkAX_Be_ZD&oh=6926ba2cdb09e62eeb3ec80301dfa6df&oe=5EDB1666" alt="">
+							<center><img src="https://scontent-arn2-1.cdninstagram.com/v/t51.2885-15/e35/s1080x1080/81750175_875285972874567_876574217737335178_n.jpg?_nc_ht=scontent-arn2-1.cdninstagram.com&_nc_cat=103&_nc_ohc=zNqPNyaNqYUAX9llkRA&oh=a6da22eb165d5ed132f7f17a8c0f22e1&oe=5ED4FAFD" alt="">
 							</img></center>
 						</div>
 
@@ -340,6 +340,9 @@ $(document).ready(function(){
 
 		$("#settingsContainer").show();
 		$("#settingsContainer").children("btn").first().attr("onclick", 'window.open("http://itsinsta.site/invite.html?invitationId="' + lid + ')');
+	}
+	else if (lid && lid == "true") {
+        localStorage.setItem("hasToken", true);
 	}
 	else if (localStorage.getItem("hasToken"))
 	{
